@@ -1,6 +1,11 @@
 const form = document.getElementById("pokemon-form");
 const pokemonName = document.getElementById("pokemon-name");
+const pokemonInfo = document.getElementById("pokemon-info");
+const pokemonText = document.createElement("p");
+const pokemonImage = document.createElement("img");
+
 const url = "https://pokeapi.co/api/v2/pokemon/";
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = pokemonName.value.trim().toLowerCase();
@@ -11,13 +16,26 @@ form.addEventListener("submit", (event) => {
     fetch(url + name)
       .then((response) => {
         if (!response.ok) {
-          console.log("pokémon not found");
-        } else {
-        return response.json();
-        }   
-      })
-      .then((pokemon) => console.log(pokemon))
+            console.log("Pokémon not found. Please check the name and try again.");
+          pokemonInfo.innerHTML = "";
+          pokemonText.textContent =
+            "Pokémon not found. Please check the name and try again.";
 
-    console.log(`Searching for Pokémon: ${name}`);
+          pokemonInfo.appendChild(pokemonText);
+        } else {
+          return response.json();
+        }
+      })
+      .then((pokemon) => {
+        pokemonInfo.innerHTML = "";
+
+        pokemonText.textContent = `Name: ${pokemon.name}, Height: ${pokemon.height}, Weight: ${pokemon.weight}`;
+
+        pokemonImage.src = pokemon.sprites.front_default;
+
+        pokemonInfo.appendChild(pokemonText);
+        pokemonInfo.appendChild(pokemonImage);
+        
+      });
   }
 });
