@@ -1,16 +1,253 @@
-#pokemon-form {
-    max-width: max-content;
-  margin: 20px;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  display: flex;
-    flex-direction: row;
-    align-items: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.form-group {
-    display: flex;
-    flex-direction: co;
-    align-items: center;
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #4d0f0f;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pokedex-container {
+  width: 450px;
+  background: #b91c1c;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.pokedex-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.big-light {
+  width: 70px;
+  height: 70px;
+  background: #00e1ff;
+  border-radius: 50%;
+  border: 3px solid #1d1d1d;
+
+  position: relative;
+}
+
+.small-lights {
+  display: flex;
+  gap: 12px;
+}
+
+.light {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.red-light {
+  background: #fe0000;
+  border: 3px solid #1d1d1d;
+}
+
+.yellow-light {
+  background: #ffa200;
+  border: 3px solid #1d1d1d;
+}
+
+.green-light {
+  background: #2fff00;
+  border: 3px solid #1d1d1d;
+}
+
+.pokedex-screen {
+  background: #9c9d9e;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 3px solid #1d1d1d;
+}
+
+.screen-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.screen-content {
+  background: #e8f4f8;
+  min-height: 280px;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #1d1d1d;
+
+  position: relative;
+}
+
+.welcome-message p {
+  margin: 8px 0;
+}
+
+#pokemon-info p {
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+#pokemon-info img {
+  max-width: 180px;
+  max-height: 180px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  margin: 0 auto;
+  display: block;
+}
+
+.pokedex-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  grid-gap: 15px;
+}
+
+.control-btn {
+  border-radius: 8px;
+  border: 3px solid #1d1d1d;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+}
+
+.control-btn:active {
+  transform: translateY(1px);
+}
+
+.blue-btn {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #1d1d1d;
+  border-radius: 50%;
+  background: #1d4ed8;
+}
+
+.control-group {
+  display: flex;
+  gap: 10px;
+}
+
+.green-btn {
+  width: 100px;
+  height: 20px;
+  background: #16a34a;
+  border: 3px solid #1d1d1d;
+}
+
+.yellow-btn {
+  width: 100px;
+  height: 20px;
+  background: #ca8a04;
+}
+
+.search-area {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fbbf24;
+  border: 3px solid #1d1d1d;
+
+  font-weight: bold;
+  outline: none;
+  transition: all 0.3s;
+}
+
+
+.search-input::placeholder {
+  color: #ffffff;
+}
+
+.search-button {
+  width: 65px;
+  height: 65px;
+  background: #d32424;
+    border: 3px solid #1d1d1d;
+
+  border-radius: 50%;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+}
+
+
+
+.search-button:hover {
+  background: #f12d2d;
+  transform: translateY(-3px);
+  
+}
+
+
+
+@media (max-width: 500px) {
+  .pokedex-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+  }
+
+  .big-light {
+    width: 55px;
+    height: 55px;
+  }
+
+  .light {
+    width: 20px;
+    height: 20px;
+  }
+
+  .screen-content {
+    min-height: 220px;
+    padding: 15px;
+  }
+
+  #pokemon-info img {
+    max-width: 140px;
+    max-height: 140px;
+  }
+
+  .blue-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .green-btn,
+  .yellow-btn {
+    width: 40px;
+    height: 28px;
+  }
 }

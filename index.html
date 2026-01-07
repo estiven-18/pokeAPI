@@ -18,21 +18,51 @@
   </head>
 
   <body>
-    
-    <main>
-      <div>
-        <form id="pokemon-form">
-          <div class="form-group">
-            <h1>Pokémon Search</h1>
-            <input type="text" id="pokemon-name" placeholder="type a pokemon" />
-            <button type="submit">search</button>
-          </div>
-        </form>
+    <div class="pokedex-container">
+      <div class="pokedex-top">
+        <div class="big-light"></div>
+        <div class="small-lights">
+          <div class="light red-light"></div>
+          <div class="light yellow-light"></div>
+          <div class="light green-light"></div>
+        </div>
       </div>
 
-      <div id="pokemon-info"></div>
-    </main>
-    <footer></footer>
+      <div class="pokedex-screen">
+        <div class="screen-header">
+          <div class="header-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="screen-content" id="pokemon-info">
+          <div class="welcome-message">
+            <p>¡Welcome to The Pokédex!</p>
+            <p>Search for your favorite Pokémon</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pokedex-controls">
+        <div class="control-btn blue-btn"></div>
+        <div class="control-group">
+          <div class="control-btn green-btn"></div>
+          <div class="control-btn yellow-btn"></div>
+        </div>
+      </div>
+
+        <div class="search-area">
+          <form id="pokemon-form" class="pokedex-search">
+            <input
+              type="text"
+              id="pokemon-name"
+              class="search-input"
+              placeholder="search pokemon..."
+            />
+          </form>
+          <button type="submit" class="search-button"></button>
+        </div>
+    </div>
     <script src="app.js"></script>
     <!-- Bootstrap JavaScript Libraries -->
     <script
