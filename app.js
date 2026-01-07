@@ -10,7 +10,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = pokemonName.value.trim().toLowerCase();
   if (!name) {
-    console.log("Please enter a Pokémon name.");
+    pokemonInfo.innerHTML = "";
+    pokemonText.textContent = "Please enter a Pokémon name.";
+    pokemonInfo.appendChild(pokemonText);
+    
     return;
   } else {
     fetch(url + name)
@@ -18,8 +21,8 @@ form.addEventListener("submit", (event) => {
         if (!response.ok) {
             console.log("Pokémon not found. Please check the name and try again.");
           pokemonInfo.innerHTML = "";
-          pokemonText.textContent =
-            "Pokémon not found. Please check the name and try again.";
+
+          pokemonText.innerHTML ="Pokémon not found. Please check the name and try again.";
 
           pokemonInfo.appendChild(pokemonText);
         } else {
