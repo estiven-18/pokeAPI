@@ -14,23 +14,23 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <header>
-      <h1>PokeAPI</h1>
-    </header>
+    
     <main>
       <div>
         <form id="pokemon-form">
-          <input type="text"  id="pokemon-name" placeholder="type a pokemon" />
-          <button type="submit">search</button>
+          <div class="form-group">
+            <h1>Pokémon Search</h1>
+            <input type="text" id="pokemon-name" placeholder="type a pokemon" />
+            <button type="submit">search</button>
+          </div>
         </form>
       </div>
 
-     
-      <div id="pokemon-info">
-      </div>
+      <div id="pokemon-info"></div>
     </main>
     <footer></footer>
     <script src="app.js"></script>

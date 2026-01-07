@@ -7,6 +7,7 @@ const pokemonImage = document.createElement("img");
 const url = "https://pokeapi.co/api/v2/pokemon/";
 
 form.addEventListener("submit", (event) => {
+  
   event.preventDefault();
   const name = pokemonName.value.trim().toLowerCase();
   if (!name) {
@@ -19,15 +20,13 @@ form.addEventListener("submit", (event) => {
     fetch(url + name)
       .then((response) => {
         if (!response.ok) {
-            console.log("Pokémon not found. Please check the name and try again.");
           pokemonInfo.innerHTML = "";
-
-          pokemonText.innerHTML ="Pokémon not found. Please check the name and try again.";
-
+          pokemonText.textContent = "Pokémon not found. Please check the name and try again.";
           pokemonInfo.appendChild(pokemonText);
-        } else {
-          return response.json();
+          // lanza un error para que el catch lo maneje y no siga al otro then
+          throw new Error("Pokemon not found");
         }
+        return response.json();
       })
       .then((pokemon) => {
         pokemonInfo.innerHTML = "";
@@ -38,7 +37,9 @@ form.addEventListener("submit", (event) => {
 
         pokemonInfo.appendChild(pokemonText);
         pokemonInfo.appendChild(pokemonImage);
-        
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   }
 });
